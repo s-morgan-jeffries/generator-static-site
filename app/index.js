@@ -25,7 +25,7 @@ var AngularModuleGenerator = yeoman.generators.Base.extend({
 
     // Have Yeoman greet the user.
     this.log(yosay('Welcome to the marvelous AngularModule generator!'));
-    var moduleName = _.slugify(_.humanize(path.basename(process.cwd())));
+    var siteName = _.slugify(_.humanize(path.basename(process.cwd())));
 
     var prompts = [
 //      {
@@ -36,9 +36,16 @@ var AngularModuleGenerator = yeoman.generators.Base.extend({
 //      }
       {
         type: 'input',
-        name: 'moduleName',
-        message: 'What is the name of your module?',
-        default: moduleName
+        name: 'siteName',
+        message: 'What is the name of your site?',
+        default: siteName
+      }
+      ,
+      {
+        type: 'input',
+        name: 'rubyGemSet',
+        message: 'What ruby gemset do you want to use for Sass?',
+        default: siteName
       }
       ,
       {
@@ -50,7 +57,8 @@ var AngularModuleGenerator = yeoman.generators.Base.extend({
     ];
 
     this.prompt(prompts, function (props) {
-      this.moduleName = props.moduleName;
+      this.siteName = props.siteName;
+      this.rubyGemSet = props.rubyGemSet;
       this.gitHubUsername = props.gitHubUsername;
       done();
     }.bind(this));
