@@ -31,7 +31,7 @@ module.exports = function (grunt) {
 
     assemble: {
       options: {
-        // Don't use this. We're using the layout.hbs file for usemin, so we
+        // Don't use this. We're using the base_layout.hbs file for usemin, so we
 //        assets: 'assets',
         // No plugins for now
 //        plugins: ['permalinks'],
@@ -40,9 +40,9 @@ module.exports = function (grunt) {
         data: '<%%= yeoman.src %>/views/data/dummy.json',
         flatten: true
       },
-      develop: {
+      static: {
         options: {
-          layout: 'layout.hbs'
+          layout: 'standard_layout.hbs'
         },
         src: ['<%%= yeoman.src %>/views/static/**/*.hbs'],
         dest: '<%%= yeoman.temp %>/'
@@ -157,7 +157,7 @@ module.exports = function (grunt) {
       build1: {
         expand: true,
         cwd: '<%%= yeoman.src %>/views/layouts/',
-        src: 'layout.hbs',
+        src: 'base_layout.hbs',
         dest: '<%%= yeoman.temp %>'
       },
       build2: {
@@ -343,7 +343,7 @@ module.exports = function (grunt) {
           {
             expand: true,
             flatten: true,
-            src: ['<%%= yeoman.src %>/views/layouts/layout.hbs'],
+            src: ['<%%= yeoman.src %>/views/layouts/base_layout.hbs'],
             dest: '<%%= yeoman.src %>/views/layouts/'
           }
         ]
@@ -415,7 +415,7 @@ module.exports = function (grunt) {
     // concat, minify and revision files. Creates configurations in memory so
     // additional tasks can operate on them
     useminPrepare: {
-      html: '<%%= yeoman.temp %>/layout.hbs',
+      html: '<%%= yeoman.temp %>/base_layout.hbs',
       options: {
         dest: '<%%= yeoman.dist %>',
         flow: {
@@ -468,7 +468,7 @@ module.exports = function (grunt) {
       },
       handlebars: {
         files: ['<%%= yeoman.src %>/views/**/*.hbs'],
-        tasks: ['assemble:develop'],
+        tasks: ['assemble'],
         options: {
           livereload: true
         }
@@ -506,7 +506,7 @@ module.exports = function (grunt) {
     // Automatically inject Bower components into the html
     wiredep: {
       src: {
-        src: ['<%%= yeoman.src %>/views/layouts/layout.hbs'],
+        src: ['<%%= yeoman.src %>/views/layouts/base_layout.hbs'],
         exclude: [
           '<%%= yeoman.src %>/bower_components/json3/lib/json3.min.js',
           '<%%= yeoman.src %>/bower_components/es5-shim/es5-shim.js'
