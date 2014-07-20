@@ -1,0 +1,43 @@
+{
+  "name": "generator-static-site",
+  "version": "0.0.0",
+  "description": "Yeoman generator for static websites",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "s-morgan-jeffries/generator-static-site",
+  "author": {
+    "name": "",
+    "email": "",
+    "url": "https://github.com/s-morgan-jeffries"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "chalk": "~0.4.0",
+    "grunt": "^0.4.5",
+    "grunt-bump": "0.0.14",
+    "load-grunt-tasks": "^0.4.0",
+    "lodash": "^2.4.1",
+    "time-grunt": "^0.3.2",
+    "yeoman-generator": "~0.16.0",
+    "yosay": "^0.1.0"
+  },
+  "devDependencies": {
+    "jasmine-expect": "^1.21.0",
+    "mocha": "*",
+    "underscore.string": "^2.3.3"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  }
+}
