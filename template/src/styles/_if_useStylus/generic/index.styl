@@ -1,0 +1,16 @@
+$use-jeet ?= true
+$use-typeplate ?= true
+$use-spritesmith ?= true
+
+@import 'axis-css-adapter'
+@import 'rupture-adapter'
+if $use-jeet
+  @import 'jeet-adapter'
+if $use-typeplate
+  @import 'typeplate-stylus'
+if $use-spritesmith
+  @import 'spritesmith-stylus'
+
+establish-baseline('normalize')
+unless $use-jeet
+  grid()

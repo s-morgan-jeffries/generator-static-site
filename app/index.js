@@ -27,13 +27,8 @@ var AngularModuleGenerator = yeoman.generators.Base.extend({
     this.log(yosay('Welcome to the marvelous AngularModule generator!'));
     var siteName = _.slugify(_.humanize(path.basename(process.cwd())));
 
+    // See https://github.com/SBoudrias/Inquirer.js for available options
     var prompts = [
-//      {
-//        type: 'confirm',
-//        name: 'someOption',
-//        message: 'Would you like to enable this option?',
-//        default: true
-//      }
       {
         type: 'input',
         name: 'siteName',
@@ -42,6 +37,44 @@ var AngularModuleGenerator = yeoman.generators.Base.extend({
       }
       ,
       {
+        type: 'list',
+        name: 'cssPreprocessor',
+        message: 'What CSS preprocessor would you like to use?',
+        choices: ['Stylus', 'Sass'],
+        default: 0
+      }
+      ,
+//      {
+//        when: function (answers) {
+//          return answers.cssPreprocessor === 'Sass';
+//        },
+//        type: 'confirm',
+//        name: 'useCompass',
+//        message: 'Do you want to use Compass?',
+//        default: false
+//      }
+//      ,
+//      {
+//        when: function (answers) {
+//          return answers.cssPreprocessor === 'Sass';
+//        },
+//        type: 'confirm',
+//        name: 'useInuit',
+//        message: 'Do you want to use Inuit.css?',
+//        default: false
+//      }
+//      ,
+//      {
+//        type: 'confirm',
+//        name: 'useBootstrap',
+//        message: 'Do you want to use Bootstrap?',
+//        default: false
+//      }
+//      ,
+      {
+        when: function (answers) {
+          return answers.cssPreprocessor === 'Sass';
+        },
         type: 'input',
         name: 'rubyGemSet',
         message: 'What ruby gemset do you want to use for Sass?',
@@ -58,6 +91,9 @@ var AngularModuleGenerator = yeoman.generators.Base.extend({
 
     this.prompt(prompts, function (props) {
       this.siteName = props.siteName;
+      this.useStylus = props.cssPreprocessor === 'Stylus';
+      this.useSass = props.cssPreprocessor === 'Sass';
+      this.useCompass = !!props.useCompass;
       this.rubyGemSet = props.rubyGemSet;
       this.gitHubUsername = props.gitHubUsername;
       done();
