@@ -9,11 +9,6 @@
   "devDependencies": {
     "sinonjs": "~1.10.2",
     "jasmine-sinon": "0.3"<% if (useSass) {%>,
-    "bootstrap-sass-official": "~3.1.0"<% } %><% if (useStylus) {%>,
-    "jeet-adapter": "https://github.com/s-morgan-jeffries/jeet-adapter.git",
-    "rupture-adapter": "https://github.com/s-morgan-jeffries/rupture-adapter.git",
-    "typeplate-stylus": "https://github.com/s-morgan-jeffries/typeplate-stylus.git",
-    "axis-css-adapter": "https://github.com/s-morgan-jeffries/axis-css-adapter.git",
-    "spritesmith-stylus": "https://github.com/s-morgan-jeffries/spritesmith-stylus.git"<% } %>
+    "bootstrap-sass-official": "~3.1.0"<% } %>
   }
 }

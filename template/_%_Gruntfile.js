@@ -450,7 +450,7 @@ module.exports = function (grunt) {
         // OPTIONAL: Specify a function or Mustache template to use for rendering destCSS
         // Mutually exclusive to cssFormat
         // More information can be found below
-        'cssTemplate': '<%%= yeoman.src %>/bower_components/spritesmith-stylus/sprite_positions.styl.mustache'
+        'cssTemplate': 'node_modules/spritesmith-stylus/sprite_positions.styl.mustache'
 
         // OPTIONAL: Map variable of each sprite
 //        'cssVarMap': function (sprite) {
@@ -501,8 +501,8 @@ module.exports = function (grunt) {
     stylus: {
       options: {
         paths: [
-          '<%= yeoman.src %>/styles',
-          '<%= yeoman.src %>/bower_components',
+          '<%%= yeoman.src %>/styles',
+          '<%%= yeoman.src %>/bower_components',
           'node_modules'
         ]
 //          urlfunc: 'embedurl', // use embedurl('test.png') in our code to trigger Data URI embedding
@@ -524,7 +524,7 @@ module.exports = function (grunt) {
           linenos: true
         },
         files: {
-          '<%= yeoman.src %>/styles/style.css': ['<%= yeoman.src %>/styles/style.styl']
+          '<%%= yeoman.src %>/styles/style.css': ['<%%= yeoman.src %>/styles/style.styl']
         }
       },
       build: {
@@ -533,7 +533,7 @@ module.exports = function (grunt) {
           linenos: false
         },
         files: {
-          '<%= yeoman.src %>/styles/style.css': ['<%= yeoman.src %>/styles/style.styl']
+          '<%%= yeoman.src %>/styles/style.css': ['<%%= yeoman.src %>/styles/style.styl']
         }
       }
     },
